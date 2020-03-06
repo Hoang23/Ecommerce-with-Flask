@@ -1,0 +1,192 @@
+#Landing-section {
+    height: 100vh;  /*makes height fit to screen*/
+    background-color: #292929;
+    
+}
+
+/* .navigation {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.navigation a{
+    color: white;
+}
+.navigation a:hover {
+    color: orange;
+} */
+
+.logo {
+    text-align: center;
+    padding-top: 250px;
+}
+
+#title {
+    text-align: center;
+    padding-top: 30px;
+
+    /* display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.first {
+    color:white;
+}
+
+.second {
+    color: #c4c4c4;
+}
+
+
+#Content-section {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.stream {
+    background-color: #292929;
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    
+}
+
+.content h2 {
+    /* padding-top: 25px; */
+    padding-bottom: 25px;
+}
+
+.card {
+    transition: 0.5s ease;
+    /* cursor: pointer; */
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+
+#Contact-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #292929;
+}
+
+.Final-area {    
+    margin-right: 200px;
+    margin-left: 200px;
+    display: flex;
+    padding: 1em;
+}
+
+.Final-area h2 {
+    color: white;
+}
+
+.Final-area p {
+    color: white;
+    padding-left: 25px;
+}
+
+
+
+.column-form {
+    flex: 1;
+    align-self: baseline;
+}
+
+.button3 {
+    padding: 5px 35px;
+}
+
+/* ########################### Footer Section ########################### */ 
+/* #Footer-section {
+    background-color:white;
+}
+
+.footer {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.footer h6 {
+    color: black;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+} */
+
+/* ########################### Other ########################### */ 
+
+
+
+.button {
+    background-color: white; 
+    border: 1px solid black;
+    color: black;
+    
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+/* ########################### Media Queries ########################### */ 
+/*if width of screen below 1000 pixels*/
+@media only screen and (max-width: 1080px) {
+    .Final-area {
+        text-align: center;
+        display: initial;
+    }
+
+    .column-form p {
+        text-align: center;
+        padding-top: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 550px) {
+    .content {
+        display: initial;
+    }
+
+    #Content-section {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    #Contact-section {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .Final-area {
+        text-align: center;
+        display: initial;
+    }
+
+    .column-form p {
+        text-align: center;
+        padding-top: 25px;
+    }
+
+    /* remove the hover effect on mobile */
+    .card {
+        display: initial;
+    }
+}

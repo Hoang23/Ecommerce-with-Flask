@@ -1,0 +1,284 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  .centered {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .container img {
+      height: 100%; 
+      
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+                 
+  }
+
+  .centered {
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn-bold {
+    font-weight: bold;
+  }
+
+  .btn-filter-customer {
+    border-style: solid;
+    border-color: black;
+  }
+
+  .items {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 140px;
+    margin-right: 140px;
+  }
+
+  .items h2 {
+    text-align: center;
+    /* padding-bottom: 50px; */
+  }
+
+  .item {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 140px;
+    margin-right: 140px;
+  }
+
+
+  /* .item-information {
+    text-align: center;
+  } */
+  /* .item-information {
+    height: 100%;
+    width: auto;
+  } */
+
+  .divider {
+    border-top: 1px solid darkgray;
+    padding-top: 5px;
+    padding-bottom: 1px;
+  }
+
+  .divider2 {
+    border-top: 1px solid darkgray;
+  }
+
+  li{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    display: inline-block;
+    padding: 0px 5px;
+    /* color: #fff; */
+  }
+
+
+
+  .navbar-custom a:hover{
+    border-bottom: 3px solid black
+  }
+
+
+  .nav-breadcrumb-container {
+    text-align: center;
+  }
+  /* bootstrap */
+  .breadcrumb {
+    background-color: white;
+  }
+
+  .breadcrumb-item {
+    text-align: center;
+
+  }
+
+  .card-custom {
+    border-style: hidden;
+  }
+
+  .card-custom:hover {
+    transform: scale(1.1);
+    border-style: solid;
+    cursor: pointer;
+    /* a better idea is to increase the opacitiy */
+  }
+
+  .card img {
+    transition-duration: 1s;
+  }
+
+  .secondary-images:hover {
+    cursor: pointer;
+  }
+
+  /* .card img:hover {
+    filter: brightness(50%);
+  } */
+
+
+  .card-item {
+    border-style: hidden;
+  }
+
+  /* .secondary-images {
+    margin-left: 140px;
+    margin-right: 140px;
+  } */
+
+  .secondary-images {
+    /* display: inline-block; */
+    padding-left: 0px;
+    margin-right: -250px;
+  }
+  
+  .secondary-images li {
+    list-style: none;
+  }
+  .secondary-images img {
+    width: 25%;
+    height: auto;
+  }
+
+ /* ###### Images ###### */
+
+  .front-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* this is needed to fix items.html layout */
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+
+
+  .main-image {
+    width: 100%;
+    height: auto;
+  }
+
+  li img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* @media only screen and (max-width: 1400px) {
+    .items {
+      width: 1500px;
+    }
+  } */
+
+
+  #Contact-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #292929;
+  } 
+
+  .Final-area {    
+    margin-right: 200px;
+    margin-left: 200px;
+    display: flex;
+    padding: 1em;
+    }
+
+    .Final-area h2 {
+        color: white;
+    }
+
+    .Final-area p {
+        color: white;
+        padding-left: 25px;
+    }
+
+
+
+    .column-form {
+        flex: 1;
+        align-self: baseline;
+    }
+
+    .button3 {
+        padding: 5px 35px;
+    }
+
+
+  @media only screen and (max-width: 1000px) {
+    .items {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .item {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .centered {
+      display: none;
+    }
+
+    #shop-section {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    } */
+
+    /* remove the hover effect on mobile */
+    .card-custom {
+      /* display: initial; */
+      border-style: solid;
+    }
+
+  
+    /* Contact area */
+
+    #Content-section {
+      padding-top: 0px;
+      padding-bottom: 0px;
+  }
+
+  #Contact-section {
+      padding-top: 0px;
+      padding-bottom: 0px;
+  }
+
+  .Final-area {
+      text-align: center;
+      display: initial;
+  }
+  
+
+    
+
+  }

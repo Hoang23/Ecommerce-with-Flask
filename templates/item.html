@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myday</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="static/style.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="static/store.css"> -->
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='store.css') }}">
+    <!-- snipcart css -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.8/default/snipcart.css" />
+  
+</head>
+<header  class="sticky-top"></header>
+{% block body %}
+<body>
+
+    <div class="navbar-custom sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/products">Products <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <div class="dropdown">
+              <button class="btn nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item active">
+                  Collections
+              </li>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-family: 'Montserrat', sans-serif;">
+                <a class="dropdown-item" href="/collections">Browse All</a>
+                {% for category in categories: %}
+                <a class="dropdown-item" href="/collections/{{ category }}  ">{{ category }}</a>
+                {% endfor %}
+              </div>
+            </div>
+
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" href="#">Shipping</a>
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-left: auto; margin-right: auto; width: 49%;">
+          <h2>Myday</h2>
+        </div>
+
+        <button class="snipcart-checkout btn btn-light" style="float: right;"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> <br>
+          <span class="snipcart-total-price">$0.00</span>
+          <!-- <span class="snipcart-items-count">0</span> -->
+        </button>
+      </nav>
+
+      
+    </div>
+
+    <section id="shop-section">
+      <div class = "item"> 
+        <h2 style="text-align: center;">{{product_name}}</h2>
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/products">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product_name }}</li>
+          </ol>
+        </nav>
+
+        <hr class="divider">
+        
+        <div class="row row-cols-1 row-cols-md-3 item-information"> <!-- row-cols-md-4 (means 4 per row - can change to 3 for example)-->
+            <div class="col mb-4">
+                <img id="main-image" src = "{{ product.Image_1 }}"  alt="..." onload="firstImage()">
+            </div>
+
+            <div class="secondary-images">
+              <li><img src = "{{ product.Image_1 }}" id="image1" onclick="image1()"><some text></img></li>
+
+              {% if product.Image_2 != "None"  %}
+                <li><img src = "{{ product.Image_2 }}" id="image2" onclick="image2()"><some text></img></li>
+              {% endif %}
+              {% if product.Image_3 != "None" %}
+                <li><img src = "{{ product.Image_3 }}" id="image3" onclick="image3()"><some text></img></li>
+                {% endif %}
+              {% if product.Image_4 != "None" %}
+                <li><img src = "{{ product.Image_4 }}" id="image4" onclick="image4()"><some text></img></li>
+              {% endif %}
+              {% if product.Image_5 != "None" %}
+                <li><img src = "{{ product.Image_5 }}" id="image5" onclick="image5()"><some text></img></li>
+              {% endif %}
+              {% if product.Image_6 != "None" %}
+                <li><img src = "{{ product.Image_6 }}" id="image5" onclick="image6()"><some text></img></li>
+              {% endif %}
+
+            </div>
+
+            <div class="col mb-4">
+                <div class="card card-item" style="text-align: left;">
+                    <div class="card-body">
+                        <!-- <h6 class="card-text" >{{ product.category }} </h6> -->
+                        {% if product.description != "None" %}
+                          <p> {{ product.description }} </p>
+                        {% endif %}
+                          
+                        <h6 style="font-weight: bold;">${{ price }}0</h6>
+                        <hr class="divider2">
+                        {% if size_variation == True: %}
+                            <select name="size" class="form-control" id="my-size">
+                                <option value="" selected disabled hidden>Size</option>
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                            </select>
+
+                            <hr class="divider">
+                        {% endif %}
+
+                        {% if size_variation == True : %}
+                        <button class="btn btn-success snipcart-add-item" id="my-button"
+                            data-item-id="{{ id }}"
+                            data-item-price="{{ price }}"
+                            data-item-url="/clothing/test"
+                            data-item-description="{{ description }}"
+                            data-item-image="{{ image_url }}"
+                            data-item-name="{{ product_name }}"
+                            data-item-custom2-name="Size"
+                            data-item-custom2-options="Small|Medium|Large">
+                            Add to bag
+                        </button>
+                        {% endif %}
+
+                        {% if size_variation == None and colour_variation == False: %} <!--size_variation == False or None-->
+                        <button class="btn btn-success snipcart-add-item" id="my-button"
+                            data-item-id="{{ id }}"
+                            data-item-price="{{ price }}"
+                            data-item-url=""
+                            data-item-description=" {{ description }}"
+                            data-item-image="{{ image_url }}"
+                            data-item-name="{{ product_name }}">
+                            Add to bag
+                        </button>
+                        {% endif %} 
+
+                        {% if product.colour_variation %}
+                          <button class="btn btn-success snipcart-add-item" id="my-button"
+                            data-item-id="{{ id }}"
+                            data-item-price="{{ price }}"
+                            data-item-url=""
+                            data-item-description=" {{ description }}"
+                            data-item-image="{{ image_url }}"
+                            data-item-name="{{ product_name }}"
+                            data-item-custom2-name="Colour"
+                            data-item-custom2-options="{{ custom_colours }}">
+                            Add to bag
+                          </button>
+                        {% endif %}            
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    </section>
+
+    <script type="text/javascript">
+      // change images on click
+      var main_img = document.getElementById("main-image")
+      function image1() {
+          var image1src = document.getElementById("image1").src;
+              main_img.src= image1src
+      }
+
+      function image2() {
+          var image2src = document.getElementById("image2").src;
+          main_img.src= image2src
+      }
+
+      function image3() {
+          var image3src = document.getElementById("image3").src;
+          main_img.src= image3src
+      }
+
+      function image4() {
+          var image4src = document.getElementById("image4").src;
+          main_img.src= image4src
+      }
+
+      function image5() {
+          var image5src = document.getElementById("image5").src;
+          main_img.src= image5src
+      }
+
+      function image6() {
+          var image6src = document.getElementById("image6").src;
+          main_img.src= image6src
+      }
+      
+   </script>
+
+    // <!-- Here, you can decide where you want Snipcart's JS shopping cart to be located in your website. -->
+    <div id="snipcart" data-api-key="NGQ3MzMwZTEtYjhjOC00Mzc0LWJhYjItZDk4MDc4ZmE1YWRmNjM3MTY0ODM3OTI4Nzg3Nzk2" hidden></div>
+    <script src="https://cdn.snipcart.com/themes/v3.0.8/default/snipcart.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="static/main.js"></script>
+</body>
+</header>
+</html>
+
+{% endblock %}
